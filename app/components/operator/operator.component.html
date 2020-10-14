@@ -1,0 +1,175 @@
+<div class="col-12 ml-12 mt-8 d-md-flex pt-2 pl-0 min-vh-100 mr-4">
+    <form class="form bg-light p-2 min-vh-80 float-right" [formGroup]="operatorForm">
+        <div class="form-row">
+
+            <div class="col-md-4 mt-3">
+                <label>First name</label>
+                <input type="text" class="form-control" formControlName="Emp_Name"
+                    [ngClass]="{ 'is-invalid': submitted && f.Emp_Name.errors }" [(ngModel)]="operatorsubmit.Emp_Name"
+                    placeholder="First name" required>
+                <div *ngIf="submitted && f.Emp_Name.errors" class="invalid-feedback">
+                    <div *ngIf="f.Emp_Name.errors.required">Please Provide First Name</div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <label>Last name</label>
+                <input type="text" class="form-control" formControlName="Emp_Last_Name"
+                    [ngClass]="{ 'is-invalid': submitted && f.Emp_Last_Name.errors }"
+                    [(ngModel)]="operatorsubmit.Emp_Last_Name" placeholder="Last name" required>
+                <div *ngIf="submitted && f.Emp_Last_Name.errors" class="invalid-feedback">
+                    <div *ngIf="f.Emp_Last_Name.errors.required">Please Provide Last Name</div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <label>Phone Number</label>
+                <input type="tel" value="91+" class="form-control" formControlName="Emp_phone"
+                    [ngClass]="{ 'is-invalid': submitted && f.Emp_phone.errors }" [(ngModel)]="operatorsubmit.Emp_phone"
+                    placeholder="Phone Number" required>
+                <div *ngIf="submitted && f.Emp_phone.errors" class="invalid-feedback">
+                    <div *ngIf="f.Emp_phone.errors.required">Please Provide Contact Number</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-3">
+                <label for="validationServer02">Occupation</label>
+                <select class="form-control" formControlName="designation_name" id="validationServer02"
+                    [ngClass]="{ 'is-invalid': submitted && f.designation_name.errors }"
+                    [(ngModel)]="operatorsubmit.designation_name" required>
+                    <option value="Operator">Operator</option>
+                    <option value="Officer">Officer</option>
+                </select>
+                <div *ngIf="submitted && f.designation_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.designation_name.errors.required"> Please Provide Proper Designation</div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <label for="example-date-input">Date Of Birth</label>
+                <input class="form-control" placeholder="yyyy-mm-dd"
+                    [ngClass]="{ 'is-invalid': submitted && f.Date_of_Birth.errors }"
+                    [(ngModel)]="operatorsubmit.Date_of_Birth" 
+                    formControlName="Date_of_Birth"  type="date" required>
+                <div *ngIf="submitted && f.Date_of_Birth.errors" class="invalid-feedback">
+                    <div *ngIf="f.Date_of_Birth.errors.required"> Please Provide D.O.B</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-3">
+
+                <label>Email</label>
+                <input type="email" class="form-control" formControlName="Emp_Email"
+                    [ngClass]="{ 'is-invalid': submitted && f.Emp_Email.errors }" [(ngModel)]="operatorsubmit.Emp_Email"
+                    placeholder="Email" required>
+                <div *ngIf="submitted && f.Emp_Email.errors" class="invalid-feedback">
+                    <div *ngIf="f.Emp_Email.errors.required">Please Enter a email address</div>
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="col-md-4 mt-3">
+                <label>Address</label>
+                <input type="text" class="form-control " formControlName="address"
+                    [ngClass]="{ 'is-invalid': submitted && f.address.errors }" [(ngModel)]="operatorsubmit.address"
+                    placeholder="Address" required>
+                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                    <div *ngIf="f.address.errors.required">Please provide the Address</div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-3">
+                <label>City</label>
+                <input type="text" class="form-control" formControlName="city"
+                    [ngClass]="{ 'is-invalid': submitted && f.city.errors }" [(ngModel)]="operatorsubmit.city"
+                    placeholder="State" required>
+                <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                    <div *ngIf="f.city.errors.required"> Please provide a city name.</div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <label>Pin</label>
+                <input type="text" class="form-control" formControlName="pin"
+                    [ngClass]="{ 'is-invalid': submitted && f.pin.errors }" [(ngModel)]="operatorsubmit.pin"
+                    placeholder="Pin" required>
+                <div *ngIf="submitted && f.pin.errors" class="invalid-feedback">
+                    <div *ngIf="f.pin.errors.required"> Please provide a valid Pin.</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <fieldset class="form-group form-row">
+                    <legend class="col-form-label pt-0 mt-2">Gender</legend>
+                    <div class="form-row">
+                        <div class="col-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="Male"
+                                    formControlName="gender" value="Male"
+                                    [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                                    [(ngModel)]="operatorsubmit.gender" required>
+                                <label class="form-check-label" for="Male">
+                                    Male
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="Female"
+                                    formControlName="gender" value="Female"
+                                    [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                                    [(ngModel)]="operatorsubmit.gender" required>
+                                <label class="form-check-label" for="Female">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="Others"
+                                    formControlName="gender" value="Other"
+                                    [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                                    [(ngModel)]="operatorsubmit.gender" required>
+                                <label class="form-check-label" for="Others">
+                                    Others
+                                </label>
+                            </div>
+                        </div>
+                        <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                            <div *ngIf="f.gender.errors.required">Please Select an option</div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <!-- <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+                <label class="form-check-label" for="invalidCheck3">
+                    Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
+             </div>
+             </div>-->
+
+            <div class="col-md-12 mt-3">
+                <div class="form-row float-right mr-4">
+
+                    <!--<button class="btn btn-primary float-right mr-4" type="button" (click)="Update()">UpDate</button>-->
+
+
+                    <button class="btn btn-primary float-right " type="button" (click)="add();onReset()">Submit</button>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>

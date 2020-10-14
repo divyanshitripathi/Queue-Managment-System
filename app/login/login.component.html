@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="login-box">
+        <div class="text-center">
+            <img src="assets/images/pbLogo_64x77.png" />
+        </div>
+        <div class="login-logo">
+            <p>Queue Managment System</p>
+        </div>
+        <div class="login-box-body">
+
+            <form [formGroup]="registerForm">
+                <p class="login-box-msg">Sign in to start your session</p>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Please enter your username"
+                        formControlName="User_Name" [ngClass]="{ 'is-invalid': submitted && f.User_Name.errors }"
+                        [(ngModel)]="loginform.User_Name" required>
+                    <div *ngIf="submitted && f.User_Name.errors" class="invalid-feedback">
+                        <div *ngIf="f.User_Name.errors.required">Username is required</div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="******" class="form-control" formControlName="Password"
+                        [(ngModel)]="loginform.Password" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }"
+                        required>
+                    <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                        <div *ngIf="f.Password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-block btn-flat" data-toggel="model" data-target="#"
+                        (click)="onsubmit()">Submit</button>
+                </div>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+                <div class="form-group text-center">
+                    Don't have an account?
+                    <br />
+                    <a [routerLink]="['signup']" class="btn btn-success btn-xs">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="col-12 ml-12 mt-8 d-md-flex pt-2 pl-0 min-vh-100 mr-4">
+    <form class="form bg-light  col-12 p-2 min-vh-80 float-right" [formGroup]="operatordeleteForm">
+        <div class="form-row">
+
+            <div class="col-md-12 mt-3">
+                <label>Employee Id</label>
+                <input type="text" class="form-control" formControlName="Emp_id"
+                    [ngClass]="{ 'is-invalid': submitted && f.Emp_id.errors }" [(ngModel)]="operatordelete.Emp_id"
+                    placeholder="Enter the Employee id " required>
+                <div *ngIf="submitted && f.Emp_id.errors" class="invalid-feedback">
+                    <div *ngIf="f.Emp_id.errors.required">Please Provide First Name</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <label>Date_Of_Leaving</label>
+                <input type="date" class="form-control" formControlName="Date_Of_Leaving"
+                    [ngClass]="{ 'is-invalid': submitted && f.Date_Of_Leaving.errors }"
+                    [(ngModel)]="operatordelete.Date_Of_Leaving" placeholder="Date Of Leaving" required>
+                <div *ngIf="submitted && f.Date_Of_Leaving.errors" class="invalid-feedback">
+                    <div *ngIf="f.Date_Of_Leaving.errors.required">Please Provide Last Name</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <label>Reason of leaving</label>
+                <input type="text" class="form-control" formControlName="reason"
+                    [ngClass]="{ 'is-invalid': submitted && f.reason.errors }" [(ngModel)]="operatordelete.reason"
+                    placeholder="Reason of leaving" required>
+                <div *ngIf="submitted && f.reason.errors" class="invalid-feedback">
+                    <div *ngIf="f.reason.errors.required">Please Provide Contact Number</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <div class="form-row float-right mr-4">
+
+                    <button class="btn btn-primary float-right " type="button" (click)="Delete();onReset()">Submit</button>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>

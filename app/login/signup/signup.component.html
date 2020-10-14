@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="login-box-body">
+        <form [formGroup]="signupform">
+            <p class="login-box-msg">Resgister Here</p>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Please enter your name" formControlName="emp_Name"
+                    [(ngModel)]="signupobj.emp_Name" [ngClass]="{ 'is-invalid': submitted && f.emp_Name.errors }"
+                    required>
+                <div *ngIf="submitted && f.emp_Name.errors.required" class="invalid-feedback">
+                    <div *ngIf="f.emp_Name.errors.required" style="color:red">
+                        Employee name is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Please enter your last name"
+                    formControlName="emp_last_name" [(ngModel)]="signupobj.emp_last_name"
+                    [ngClass]="{ 'is-invalid': submitted && f.emp_last_name.errors }" required>
+                <div *ngIf=" submitted && f.emp_last_name.errors.required"
+                    class="invalid-feedback">
+                    <div *ngIf="f.emp_last_name.errors.required" style="color:red">
+                        Employee last name is required
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <input type="text" placeholder="enter the username" class="form-control" formControlName="user_name"
+                    [(ngModel)]="signupobj.user_name" [ngClass]="{ 'is-invalid': submitted && f.user_Name.errors }"
+                    required>
+                <div *ngIf="submitted && f.user_name.errors?.required"
+                    class="invalid-feedback">
+                    <div *ngIf="f.user_name.errors.required" style="color:red">
+                        Username is required
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="******" class="form-control" formControlName="passsword"
+                    [(ngModel)]="signupobj.passsword" [ngClass]="{ 'is-invalid': submitted && f.passsword.errors }"
+                    required>
+                <div *ngIf="submitted && f.passsword.errors?.required" class="invalid-feedback">
+                    <div *ngIf="f.passsword.errors?.required" style="color:red">
+                        Password is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="******" formControlName="confirmPassword" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                <div *ngIf="(f.confirmPassword.touched || submitted) && f.confirmPassword.errors?.required"
+                    class="invalid-feedback" style="color:red">Confirm Password is required</div>
+                <div *ngIf="f.confirmPassword.errors?.mustMatch" style="color:red">Passwords must match</div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block btn-flat"
+                    (click)="onsubmit(); onReset()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

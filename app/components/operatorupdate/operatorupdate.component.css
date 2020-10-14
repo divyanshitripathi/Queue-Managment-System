@@ -1,0 +1,22 @@
+.search
+{
+  overflow-x:scroll;
+  overflow-y: scroll;
+  height:250px;
+}
+.scrollbar-primary::-webkit-scrollbar {
+  width:12px;
+  background-color: #F5F5F5; }
+.scrollbar-primary::-webkit-scrollbar-thumb 
+{
+    border-radius:5px;
+    background-color: #4285F4;
+}
+    
+.scrollbar-primary
+{
+    scrollbar-color: #4285F4 #F5F5F5;
+}
+
+
+

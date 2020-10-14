@@ -1,0 +1,49 @@
+<div class="col-12 ml-12 mt-8 d-md-flex pt-2 pl-0 min-vh-100 mr-4">
+    <form class="form bg-light  col-12 p-2 min-vh-80 float-right" [formGroup]="operatorupdation2Form">
+        <div class="form-row">
+            <div class="col-md-12 mt-3">
+                <label>Operator Id</label>
+                <input type="text" class="form-control" formControlName="operator_id"
+                    [ngClass]="{ 'is-invalid': submitted && f.operator_id.errors }" [(ngModel)]="employeeupdationobject.operator_id"
+                    placeholder="Enter the Operator Id " required>
+                <div *ngIf="submitted && f.operator_id.errors" class="invalid-feedback">
+                    <div *ngIf="f.operator_id.errors.required">Please Provide Operator Id</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <label>Update Counter Number</label>
+                <input type="text" class="form-control" formControlName="counter_updated"
+                    [ngClass]="{ 'is-invalid': submitted && f.counter_updated.errors }" [(ngModel)]="employeeupdationobject.counter_updated"
+                    placeholder="Enter the Counter Update Number " required>
+                <div *ngIf="submitted && f.counter_updated.errors" class="invalid-feedback">
+                    <div *ngIf="f.counter_updated.errors.required">Please Provide Counter Number</div>
+                </div>
+            </div>
+            
+            
+            <div class="col-md-12 mt-3">
+                <label>Assigned  Updated Date</label>
+                <input type="date" class="form-control" formControlName="assigned_date_updated"
+                    [ngClass]="{ 'is-invalid': submitted && f.assigned_date_updated.errors }" [(ngModel)]="employeeupdationobject.assigned_date_updated"
+                    placeholder="Date" required>
+                <div *ngIf="submitted && f.assigned_date_updated.errors" class="invalid-feedback">
+                    <div *ngIf="f.assigned_date_updated.errors.required">Please Provide Date</div>
+                </div>
+            </div>
+        
+            <div class="col-md-12 mt-3">
+                <div class="form-row float-right mr-4">
+
+                    <button class="btn btn-primary float-right " type="button" (click)="Update();onReset()">Submit</button>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+

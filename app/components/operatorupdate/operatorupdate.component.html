@@ -1,0 +1,217 @@
+<div class="container-fluid bg-light min-vh-100">
+    <div class="col-12">
+
+        <div class="input-group mb-3 ">
+            <input class="form-control input-lg" type="text" placeholder="Search" [(ngModel)]="data" name="data1">
+            <div class="input-group-append">
+                <button rounded="true" class="btn btn-outline-primary waves-effect" type="button" data-toggle="collapse"
+                    data-target="#collapsediv" aria-expanded="false" aria-controls="collapsediv"
+                    (click)="search();">Search</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-12 overflow-auto">
+        <div class="collapse search scrollbar-primary" id="collapsediv">
+
+            <div class="table-responsive-md">
+                <table mdbTable responsive="true" class="table table-striped table-bordered table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let head of headElements" scope="col">{{head}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr mdbTableCol *ngFor="let result of finalreport | filter:data">
+                            <th scope="row">{{result.employee_Id}}</th>
+                            <td>{{result.employee_Name}}</td>
+                            <td>{{result.employee_Last_Name}}</td>
+                            <td>{{result.employee_Phone}}</td>
+                            <td>{{result.employee_Email}}</td>
+                            <td>{{result.fk_Designation_Id}}</td>
+                            <td>{{result.address}}</td>
+                            <td>{{result.city}}</td>
+                            <td>{{result.pin}}</td>
+                            <td>{{result.gender}}</td>
+                            <td>{{result.date_Of_Birth}}</td>
+                            <td>{{result.is_Active}}</td>
+                            <td>{{result.date_Of_Join}}</td>
+                            <td>{{result.date_Of_Leave}}</td>
+                            <td><button rounded="true" class="btn btn-outline-primary" type="button"
+                                    (click)="showfunction()">UpDate</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-12 p-2 float-right border border-info mt-100" *ngIf="show">
+        <form class="form bg-light" [formGroup]="operatorForm" >
+            <div class="form-row">
+                <div class="col-md-4 mt-3">
+                    <label>Employee_Id</label>
+                    <input type="text" class="form-control" formControlName="Emp_Id"
+                        [ngClass]="{ 'is-invalid': submitted && f.Emp_Id.errors }"
+                        [(ngModel)]="operator_update.Emp_Id" placeholder="Employee Id" required>
+                    <div *ngIf="submitted && f.Emp_Id.errors" class="invalid-feedback">
+                        <div *ngIf="f.Emp_Id.errors.required">Please Provide Employee Id</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mt-3">
+                    <label>First name</label>
+                    <input type="text" class="form-control" formControlName="Emp_Name"
+                        [ngClass]="{ 'is-invalid': submitted && f.Emp_Name.errors }"
+                        [(ngModel)]="operator_update.Emp_Name" placeholder="First name" required>
+                    <div *ngIf="submitted && f.Emp_Name.errors" class="invalid-feedback">
+                        <div *ngIf="f.Emp_Name.errors.required">Please Provide First Name</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <label>Last name</label>
+                    <input type="text" class="form-control" formControlName="Emp_Last_Name"
+                        [ngClass]="{ 'is-invalid': submitted && f.Emp_Last_Name.errors }"
+                        [(ngModel)]="operator_update.Emp_Last_Name" placeholder="Last name" required>
+                    <div *ngIf="submitted && f.Emp_Last_Name.errors" class="invalid-feedback">
+                        <div *ngIf="f.Emp_Last_Name.errors.required">Please Provide Last Name</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" formControlName="Emp_phone"
+                        [ngClass]="{ 'is-invalid': submitted && f.Emp_phone.errors }"
+                        [(ngModel)]="operator_update.Emp_phone" placeholder="Phone Number" required>
+                    <div *ngIf="submitted && f.Emp_phone.errors" class="invalid-feedback">
+                        <div *ngIf="f.Emp_phone.errors.required">Please Provide Contact Number</div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 mt-3">
+                    <label>Date Of Birth</label>
+                    <input type="date" class="form-control" placeholder="yyyy-mm-dd" formControlName="Date_of_Birth"
+                        [ngClass]="{'is-invalid':submitted && f.Date_of_Birth.errors }"
+                        [(ngModel)]="operator_update.Date_of_Birth" required>
+                    <div *ngIf="submitted && f.Date_of_Birth.errors" class="invalid-feedback">
+                        <div *ngIf="f.Date_of_Birth.errors.required"> Please Provide D.O.B</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mt-3">
+
+                    <label>Email</label>
+                    <input type="email" class="form-control" formControlName="Emp_Email"
+                        [ngClass]="{ 'is-invalid': submitted && f.Emp_Email.errors }"
+                        [(ngModel)]="operator_update.Emp_Email" placeholder="Email" required>
+                    <div *ngIf="submitted && f.Emp_Email.errors" class="invalid-feedback">
+                        <div *ngIf="f.Emp_Email.errors.required">Please Enter a email address</div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 mt-3">
+                    <label for="validationServer02">Occupation</label>
+                    <select class="form-control" formControlName="Designation" id="validationServer02"
+                        [ngClass]="{ 'is-invalid': submitted && f.Designation.errors }"
+                        [(ngModel)]="operator_update.Designation" required>
+                        <option value="operator">Operator</option>
+                        <option value="officer">Officer</option>
+                    </select>
+                    <div *ngIf="submitted && f.Designation.errors" class="invalid-feedback">
+                        <div *ngIf="f.Designation.errors.required"> Please Provide Proper Designation</div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-4 mt-3">
+                    <label>Address</label>
+                    <input type="text" class="form-control " formControlName="address"
+                        [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+                        [(ngModel)]="operator_update.address" placeholder="Address" required>
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                        <div *ngIf="f.address.errors.required">Please provide the Address</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mt-3">
+                    <label>City</label>
+                    <input type="text" class="form-control" formControlName="city"
+                        [ngClass]="{ 'is-invalid': submitted && f.city.errors }" [(ngModel)]="operator_update.city"
+                        placeholder="State" required>
+                    <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                        <div *ngIf="f.city.errors.required"> Please provide a city name.</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <label>Pin</label>
+                    <input type="text" class="form-control" formControlName="pin"
+                        [ngClass]="{ 'is-invalid': submitted && f.pin.errors }" [(ngModel)]="operator_update.pin"
+                        placeholder="Pin" required>
+                    <div *ngIf="submitted && f.pin.errors" class="invalid-feedback">
+                        <div *ngIf="f.pin.errors.required"> Please provide a valid Pin.</div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4 mt-3">
+                <fieldset class="form-group form-row">
+                    <legend class="col-form-label pt-0 mt-2">Gender</legend>
+                    <div class="form-row">
+                        <div class="col-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="Male"
+                                    formControlName="gender" value="Male"
+                                    [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                                    [(ngModel)]="operator_update.gender" required>
+                                <label class="form-check-label" for="Male">
+                                    Male
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="Female"
+                                    formControlName="gender" value="Female"
+                                    [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                                    [(ngModel)]="operator_update.gender" required>
+                                <label class="form-check-label" for="Female">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="Others"
+                                    formControlName="gender" value="Other"
+                                    [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                                    [(ngModel)]="operator_update.gender" required>
+                                <label class="form-check-label" for="Others">
+                                    Others
+                                </label>
+                            </div>
+                        </div>
+                        <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                            <div *ngIf="f.gender.errors.required">Please Select an option</div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+                <div class="col-md-12 mt-3">
+                    <div class="form-row float-right mr-4">
+
+                        <button class="btn btn-primary float-right mr-4" type="button"
+                            (click)="Update()">UpDate</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>

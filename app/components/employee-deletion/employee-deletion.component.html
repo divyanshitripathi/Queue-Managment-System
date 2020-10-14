@@ -1,0 +1,44 @@
+<div class="col-12 ml-12 mt-8 d-md-flex pt-2 pl-0 min-vh-100 mr-4">
+    <form class="form bg-light  col-12 p-2 min-vh-80 float-right" [formGroup]="operatordeletion2Form">
+        <div class="form-row">
+            <div class="col-md-12 mt-3">
+                <label>Operator Id</label>
+                <input type="text" class="form-control" formControlName="operator_id"
+                    [ngClass]="{ 'is-invalid': submitted && f.operator_id.errors }" [(ngModel)]="employeedeletionobject.operator_id"
+                    placeholder="Enter the Operator Id " required>
+                <div *ngIf="submitted && f.operator_id.errors" class="invalid-feedback">
+                    <div *ngIf="f.operator_id.errors.required">Please Provide Operator Id</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <label>Reason Of Disassignment</label>
+                <input type="text" class="form-control" formControlName="Reason_of_disassignment"
+                    [ngClass]="{ 'is-invalid': submitted && f.Reason_of_disassignment.errors }"
+                    [(ngModel)]="employeedeletionobject.Reason_of_disassignment" placeholder="Declare the reasons of disassignment" required>
+                <div *ngIf="submitted && f.Reason_of_disassignment.errors" class="invalid-feedback">
+                    <div *ngIf="f.Reason_of_disassignment.errors.required">Please Provide reason of disassignment</div>
+                </div> 
+            </div>
+            <div class="col-md-12 mt-3">
+                <label>DisAssigned Date</label>
+                <input type="date" class="form-control" formControlName="disassigned_date"
+                    [ngClass]="{ 'is-invalid': submitted && f.disassigned_date.errors }" [(ngModel)]="employeedeletionobject.disassigned_date"
+                    placeholder="Date" required>
+                <div *ngIf="submitted && f.disassigned_date.errors" class="invalid-feedback">
+                    <div *ngIf="f.disassigned_date.errors.required">Please Provide Date</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <div class="form-row float-right mr-4">
+
+                    <button class="btn btn-primary float-right " type="button" (click)="Delete();onReset()">Submit</button>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+

@@ -1,0 +1,77 @@
+<div class="col-12 ml-12 mt-8 d-md-flex pt-2 pl-0 min-vh-100 mr-4">
+    <form class="form bg-light  col-12 p-2 min-vh-80 float-right" [formGroup]="operatoraddtion2Form">
+        <div class="form-row">
+
+            <div class="col-md-12 mt-3">
+                <label>Operator Name</label>
+                <input type="text" class="form-control" formControlName="operator_Name"
+                    [ngClass]="{ 'is-invalid': submitted && f.operator_Name.errors }" [(ngModel)]="employeeaddtionobject.operator_Name"
+                    placeholder="Enter the Operator Name " required>
+                <div *ngIf="submitted && f.operator_Name.errors" class="invalid-feedback">
+                    <div *ngIf="f.operator_Name.errors.required">Please Provide Operator Name</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <label>Operator Last Name</label>
+                <input type="text" class="form-control" formControlName="operator_Last_Name"
+                    [ngClass]="{ 'is-invalid': submitted && f.operator_Last_Name.errors }" [(ngModel)]="employeeaddtionobject.operator_Last_Name"
+                    placeholder="Enter the Operator Last Name " required>
+                <div *ngIf="submitted && f.operator_Last_Name.errors" class="invalid-feedback">
+                    <div *ngIf="f.operator_Last_Name.errors.required">Please Provide Operator Last Name</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <label>Employee Id</label>
+                <input type="text" class="form-control" formControlName="emp_id"
+                    [ngClass]="{ 'is-invalid': submitted && f.emp_id.errors }" [(ngModel)]="employeeaddtionobject.emp_id"
+                    placeholder="Enter the Employee Id " required>
+                <div *ngIf="submitted && f.emp_id.errors" class="invalid-feedback">
+                    <div *ngIf="f.emp_id.errors.required">Please Provide Employee Id</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <label>Counter Number Assigned</label>
+                <input type="text" class="form-control" formControlName="counter_assigned"
+                    [ngClass]="{ 'is-invalid': submitted && f.counter_assigned.errors }"
+                    [(ngModel)]="employeeaddtionobject.counter_assigned" placeholder="Counter Number Assigned" required>
+                <div *ngIf="submitted && f.counter_assigned.errors" class="invalid-feedback">
+                    <div *ngIf="f.counter_assigned.errors.required">Please Provide Counter Number</div>
+                </div> 
+            </div>
+            <div class="col-md-12 mt-3">
+                <label>Assigned Date</label>
+                <input type="date" class="form-control" formControlName="assigned_date"
+                    [ngClass]="{ 'is-invalid': submitted && f.assigned_date.errors }" [(ngModel)]="employeeaddtionobject.assigned_date"
+                    placeholder="Date" required>
+                <div *ngIf="submitted && f.assigned_date.errors" class="invalid-feedback">
+                    <div *ngIf="f.assigned_date.errors.required">Please Provide Date</div>
+                </div>
+            </div>
+             <div class="col-md-12 mt-3">
+                <label for="validationServer02">Task Assigned</label>
+                <select class="form-control" formControlName="task_assigned" id="validationServer02"
+                    [ngClass]="{ 'is-invalid': submitted && f.task_assigned.errors }"
+                    [(ngModel)]="employeeaddtionobject.task_assigned" required>
+                    <option value="Service Provider">Service Provider</option>
+                    <option value="Token Generator">Token Generator</option>
+                    <option value="Other">Other</option>
+                </select>
+                <div *ngIf="submitted && f.task_assigned.errors" class="invalid-feedback">
+                    <div *ngIf="f.task_assigned.errors.required"> Please Provide Proper Counter type</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <div class="form-row float-right mr-4">
+
+                    <button class="btn btn-primary float-right " type="button" (click)="Add();onReset()">Submit</button>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+

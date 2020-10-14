@@ -1,0 +1,24 @@
+
+* {
+    box-sizing: border-box;
+  }
+  .container
+{
+ background-color: honeydew;
+ width: 100%;
+ height:auto;
+ position: absolute;
+ margin-left:40px ;
+ 
+}
+
+.login-box-body
+{
+  width:auto;
+  padding: 10px;  
+  border: 2px solid transparent;
+  margin-top: 100px;
+  position: relative;
+  background-color: white;
+  margin-bottom: 100px;
+}

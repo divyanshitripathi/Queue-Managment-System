@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+@media(min-width: 768px) {
+    header.main-header .logo, aside.main-sidebar {
+        width: 250px;
+    }
+    header.main-header .navbar, div.content-wrapper, footer.main-footer {
+        margin-left: 250px;
+    }
+    .sidebar-mini.sidebar-collapse .main-header .logo, .sidebar-mini.sidebar-collapse .main-sidebar {
+        width: 60px !important;
+    }
+    .sidebar-mini.sidebar-collapse .main-header .navbar, .sidebar-mini.sidebar-collapse .content-wrapper, 
+    .sidebar-mini.sidebar-collapse .right-side, .sidebar-mini.sidebar-collapse .main-footer {
+        margin-left: 60px !important;
+    }
+}
+
+.logo {
+    background-color: #117a8b;
+}
+.loading-bg {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 9999;
+    display:none;
+}
+.loading-bg .loading-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #FFF;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 22px;
+    margin-left: -25px;
+    margin-top: -25px;
+}
+.content-wrapper, .login-page, .register-page {
+    background-color: #f2f2f2;
+}
+.breadcrumb {
+    background-color: #fff;
+}
+input.form-control {
+    border-radius: 5px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

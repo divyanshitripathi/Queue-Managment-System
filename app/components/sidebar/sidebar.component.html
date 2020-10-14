@@ -1,0 +1,122 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" *ngIf="show1">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Queue Managment System</a>
+        <button class="navbar-toggler  hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed"
+            data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="true"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav text-center mr-auto">
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="#dropdownNavbar" ngbDropdownToggle>
+                        Language
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownNavbar" ngbDropdownMenu>
+                        <a class="nav-link dropdown-item text-dark" href="#">English</a>
+                        <a class="nav-link dropdown-item text-dark" href="#">Punjabi</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav text-center">
+                <li><a href="#" class="nav-link" [routerLink]="['/login/signup']"><i class="far fa-user fa-fw"
+                            style="color:white"></i>Register</a></li>
+                <li><a href="#" class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt fa-fw"
+                            style="color:white"></i>LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 d-md-flex bg-dark pt-2 pl-0 min-vh-100" id="sidebar" *ngIf="show1">
+            <ul class="nav flex-column flex-nowrap overflow-hidden pt-10">
+                <li class="nav-item ">
+                    <a class="nav-link text-truncate text-muted" style="font-size:20px;" href="#"><i
+                            class="fas fa-tachometer-alt fa-fw " style="color:grey; font-size:20px;"></i>
+                        <span class="d-none d-sm-inline">Dashboard</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-truncate text-muted" style="font-size:20px;" href="#" data-toggle="collapse"
+                        (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                        aria-controls="submenu1">
+                        <span class="d-none d-sm-inline">Employee</span></a>
+                    <div class="collapse" id="submenu1" [ngbCollapse]="isCollapsed">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item">
+                                <a class="nav-link py-0 mt-2 text-white" [routerLink]="['operator']"
+                                    (click)="showfunction()"><span>Add
+                                        Employee</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link py-0 mt-2 text-white" [routerLink]="['operatorUpdate']"
+                                    (click)="showfunction()"><span>UpDate Employee</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link py-0 mt-2 text-white" [routerLink]="['operatorDelete']" (click)="showfunction()">Delete Employee</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-truncate text-muted" style="font-size:20px;" href="#" data-toggle="collapse"
+                        (click)="isCollapsedthird = !isCollapsedthird" [attr.aria-expanded]="!isCollapsedthird"
+                        aria-controls="submenu1">
+                        <span class="d-none d-sm-inline">Operator</span></a>
+                    <div class="collapse" id="submenu1" [ngbCollapse]="isCollapsedthird">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item">
+                                <a class="nav-link py-0 mt-2 text-white" [routerLink]="['operator2Addtion']"
+                                    (click)="showfunction()"><span>Add
+                                        Operator</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link py-0 mt-2 text-white" [routerLink]="['operator2Update']"
+                                    (click)="showfunction()"><span>UpDate Operator</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link py-0 mt-2 text-white" [routerLink]="['operator2Delete']"
+                                    (click)="showfunction()">Delete Operator</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-truncate text-muted" style="font-size:20px;" href="#" data-toggle="collapse"
+                        (click)="isCollapsedsecond = !isCollapsedsecond" [attr.aria-expanded]="!isCollapsedsecond"
+                        aria-controls="submenu2">
+                        <span class="d-none d-sm-inline">Counters</span></a>
+                    <div class="collapse" id="submenu2" [ngbCollapse]="isCollapsedsecond">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0 text-white" [routerLink]="['counterAddtion']" (click)="showfunction()" ><span>Add
+                                        Counter</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link py-1 text-white" [routerLink]="['counterDeletion']" (click)="showfunction()">Delete Counter</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link text-truncate text-muted" style="font-size:20px;" [routerLink]="['tokenGenerator']" (click)="showfunction1()">
+                        <span class="d-none d-sm-inline">Token Screen</span></a>
+                </li>
+                <li class="nav-item">
+                 <a class="nav-link text-truncate text-muted" style="font-size:20px;" href="#">
+                        <span class="d-none d-sm-inline">Display Screen</span></a>
+                </li>
+                <li class="nav-item">
+                 <a class="nav-link text-truncate text-muted" style="font-size:20px;" href="#">
+                        <span class="d-none d-sm-inline">Services</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-10 ml-12 mt-8 pt-2 pl-0 min-vh-100" *ngIf="show">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

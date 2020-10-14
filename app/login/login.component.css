@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+}
+.container
+{
+ background-color: honeydew;
+ width: 100%;
+ height:auto;
+ position: absolute;
+ margin-left:40px ;
+}
+.login-box-msg
+{
+    text-align: center;
+    position: relative;
+}
+.login-box
+{
+    width : 360px;
+    margin: 5% auto;
+    position: relative;
+} 
+.login-logo p
+{
+    color :#444444;
+    text-align: center;
+    font-size: 30px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    position: relative;
+}
+
+.login-box-body
+{
+    background-color: #fff;
+    background-attachment:relative;
+    border-top:0;
+    margin-top: auto;
+    padding: 20px;
+    position: relative;
+    color : #666;
+    height:auto;
+
+}

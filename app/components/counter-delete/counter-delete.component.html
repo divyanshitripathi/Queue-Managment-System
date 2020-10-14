@@ -1,0 +1,38 @@
+<div class="col-12 ml-12 mt-8 d-md-flex pt-2 pl-0 min-vh-100 mr-4">
+    <form class="form bg-light  col-12 p-2 min-vh-80 float-right" [formGroup]="counterdeletionForm">
+        <div class="form-row">
+
+            <div class="col-md-12 mt-3">
+                <label>Counter No</label>
+                <input type="text" class="form-control" formControlName="counter_no"
+                    [ngClass]="{ 'is-invalid': submitted && f.counter_no.errors }" [(ngModel)]="counterdeletionobject.counter_no"
+                    placeholder="Enter the Counter No " required>
+                <div *ngIf="submitted && f.counter_no.errors" class="invalid-feedback">
+                    <div *ngIf="f.counter_no.errors.required">Please Provide counter No</div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <label>Date_Of_deletion</label>
+                <input type="date" class="form-control" formControlName="deletion_date"
+                    [ngClass]="{ 'is-invalid': submitted && f.deletion_date.errors }"
+                    [(ngModel)]="counterdeletionobject.deletion_date" placeholder="Date Of creation" required>
+                <div *ngIf="submitted && f.deletion_date.errors" class="invalid-feedback">
+                    <div *ngIf="f.deletion_date.errors.required">Please Provide deletion date</div>
+                </div>
+            </div>            
+            <div class="col-md-12 mt-3">
+                <div class="form-row float-right mr-4">
+
+                    <button class="btn btn-primary float-right " type="button" (click)="Delete();onReset()">Submit</button>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+

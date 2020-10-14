@@ -1,0 +1,82 @@
+<form class="form fullscreen_bg ml-20 min-vh-100">
+    <div class="row1 col-12 btn-group btn-group-toggle" data-toggle="buttons">
+                <div class="col-4">
+                   <button class="btn btn-primary btn-lg btn3d btn-block" type="button"
+                            (click)="showfunction1()">Age</button>
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-primary btn-lg btn3d btn-block" type="button"
+                            (click)="showfunction1()">Gender</button>
+                </div>
+    </div>
+    <div class="row2 col-12 btn-group btn-group-toggle" data-toggle="buttons" *ngIf="show">
+                <div class=" form-group col-4">
+                <form [formGroup]="myform">
+                   <div class="col-12">
+                        
+                        <input type="radio" name="age" id="Age<20"
+                                    formControlName="age" value="Age<20"
+                                    required>
+                                    <label class="btn btn-primary btn-lg btn3d btn-block" for="Age<20">
+                          Age<20     
+                        </label>
+                    </div>
+                    <div class="col-12">
+                          <input type="radio" name="age" id="Age>20 or Age<50"
+                                    formControlName="age" value="Age>20 or Age<50"
+                                    required>
+                                    <label class="btn btn-primary btn-lg btn3d btn-block " for="Age>20 or Age<50">Age>20 or Age<50
+                        </label>
+                    </div>
+                    <div class="col-12">
+                          <input  type="radio" name="age" id="Age>50"
+                                    formControlName="age" value="Age>50"
+                                     required>
+                                    <label class="btn btn-primary btn-lg btn3d btn-block " for="Age>50">Age>50
+                        </label>
+                    </div>
+                    </form>
+                </div>
+                <div class="col-4">
+                </div>
+                <div class=" form-group col-4">
+                   <div class="col-12">
+                        
+                          <input  type="radio" name="gender" id="male"
+                                    formControlName="gender" value="male" 
+                                     required>
+                                    <label class="btn btn-primary btn-lg btn3d btn-block" for="male">Male     
+                        </label>
+                    </div>
+                    <div class="col-12">
+                        
+                          <input  type="radio" name="gender" id="female"
+                                    formControlName="gender" value="female"
+                                     required>
+                                    <label class="btn btn-primary btn-lg btn3d btn-block " for="female">Female
+                        </label>
+                    </div>
+                    <div class="col-12">
+                        
+                          <input   type="radio" name="gender" id="Other"
+                                    formControlName="gender" value="Other"
+                                     required>
+                                    <label class="btn btn-primary btn-lg btn3d btn-blockc " for="Other">Other
+                        </label>
+                    </div>
+                 </div>
+                
+    </div>
+    <div class="row3 col-12">
+                           <button class="btn btn-primary btn-lg btn3d btn-block" type="button" (click)="token()">Generate Token
+                             </button>
+    </div>
+    <!--<div class="row3 col-12" *ngIf="show1">
+         <input type="text" class="form-control" name="item" *ngFor="let item of tokencreated"  placeholder={{item.counter_NUmber}}>
+     </div>-->
+    
+</form>
+
+
